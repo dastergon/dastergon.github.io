@@ -1,0 +1,37 @@
+a {
+    color: #1772d1;
+    text-decoration:none;
+}
+
+a:focus, a:hover {
+    color: #f09228;
+    text-decoration:none;
+}
+
+body,td,th,tr,p {
+    font-family:  Verdana, Helvetica, sans-serif;
+    font-size: 14px
+}
+
+strong {
+    font-family:  Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+name {
+    font-family:  Verdana, Helvetica, sans-serif;
+    font-size: 32px;
+}
+
+span.highlight {
+    background-color: #ffffd0;
+}
+
+#avatar {
+    background-image: url('/img/my-avatar.jpg');
+    width: 230px;
+    height: 230px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
