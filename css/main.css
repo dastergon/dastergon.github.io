@@ -28,7 +28,7 @@ span.highlight {
 }
 
 #avatar {
-    background-image: url('/img/my-avatar.jpg');
+    background-image: url('../img/my-avatar.jpg');
     width: 230px;
     height: 230px;
     background-size: cover;
