@@ -1,79 +1,103 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <title>Pavlos Ratis</title>
 
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Pavlos Ratis</title>
 
-        <meta name="author" content="Pavlos Ratis" />
-        <!-- Facebook OpenGraph tags -->
-        <meta property="og:title" content="Pavlos Ratis" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://dastergon.gr/" />
-        <meta property="og:image" content="https://dastergon.gr/img/my-avatar.jpg" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
 
-        <!-- Twitter summary cards -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@dastergon" />
-        <meta name="twitter:creator" content="@dastergon" />
-        <meta name="twitter:title" content="Pavlos Ratis" />
-        <meta name="twitter:image" content="https://dastergon.gr/img/my-avatar.jpg" />
-        <style>
-            body {padding-top: 2em;}
-            a {
-                color: black;
-                text-decoration:none;
-            }
-            a:focus, a:hover {
-                color: #f09228;
-                text-decoration:none;
-            }
-            .avatar {
-                width: 170px;
-                height: 170px;
-                border-radius: 180px;
-                border: 2px solid #ccc;
-                box-shadow: 0 0 20px -5px black;
-            }
-        </style>
-    </head>
+    <meta name="author" content="Pavlos Ratis" />
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="Pavlos Ratis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dastergon.gr/" />
+    <meta property="og:image" content="https://dastergon.gr/img/my-avatar.jpg" />
 
-    <body>
-        <main role="main">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <img src="img/my-avatar.jpg" class="avatar">
-                    </div>
-                </div>
-                <h1 class="text-center">Pavlos Ratis</h1>
-                <div class="row">
-                    <div class="col-8 mx-auto">
-                        <div class="text-center">
-                            <br />
-                            <p> Hi. I'm Pavlos. I'm a Site Reliability Engineer at HolidayCheck.</p>
-                            <p>Linux user and open source developer for many years. Attained a MSc in software engineering at the University of Glasgow. Over time, I have worked on a wide range of projects, from writing software to automate and manage multi-server cloud-based infrastructure to developing web applications. In the past, I contributed to the Gentoo Linux project as an official developer working on various tools in the development chain. Also, I have participated in the Google Summer of Code programme twice as a Software Developer and once as a mentor.</p>
-                            <p>My interests include distributed systems, Linux internals, Python and Go.</p>
-                            <p>GnuPG FP: 1777 8AE2 40DC 22BA A84C  C60B A31B BEB2 3A05 1746 </p>
-                            <a href="https://github.com/dastergon" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://twitter.com/dastergon" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-                            <a href="https://linkedin.com/in/pavlosratis" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-                            <br />
-                            <br />
-                            <small class="text-muted">© Pavlos Ratis 2018</small>
-                        </div>
-                    </div>
+    <!-- Twitter summary cards -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@dastergon" />
+    <meta name="twitter:creator" content="@dastergon" />
+    <meta name="twitter:title" content="Pavlos Ratis" />
+    <meta name="twitter:image" content="https://dastergon.gr/img/my-avatar.jpg" />
+    <style>
+        body {
+            padding-top: 2em;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:focus,
+        a:hover {
+            color: #f09228;
+            text-decoration: none;
+        }
+
+        p a {
+            text-decoration: underline;
+        }
+
+        .avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 180px;
+            border: 2px solid #ccc;
+            box-shadow: 0 0 20px -5px black;
+        }
+    </style>
+</head>
+
+<body>
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <h3>Pavlos Ratis</h3>
+                    <img src="img/my-avatar.jpg" class="avatar pull-right">
+                    <p> Hi. I'm Pavlos. I'm a Site Reliability Engineer at HolidayCheck.</p>
+                    <p>
+                        Linux user and open source developer since high school. Attained a MSc in Software Engineering at the University of Glasgow.
+                        Over time, I worked on a wide range of projects, from writing software to automate and manage multi-server
+                        cloud-based infrastructure to developing web applications. In the past, I contributed to the Gentoo
+                        Linux project as an official developer working on various tools in the development and infrastructure
+                        chain. In addition, I participated in the
+                        <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a> programme twice as a Software Developer, and once as a mentor.
+                    </p>
+                    <p>I also consulted on the
+                        <a href="https://www.packtpub.com/web-development/real-world-sre">"Real World SRE"</a> book by reviewing and offering suggestions regarding the content.</p>
+                    <p>My interests include distributed systems, Linux internals, Python and Go.</p>
+                    <p>GnuPG FP: 1777 8AE2 40DC 22BA A84C C60B A31B BEB2 3A05 1746 </p>
+                    <a href="https://github.com/dastergon" target="_blank">
+                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/dastergon" target="_blank">
+                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/pavlosratis" target="_blank">
+                        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <br />
+                    <br />
+                    <small class="text-muted">© Pavlos Ratis 2018</small>
                 </div>
             </div>
-        </main>
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    </body>
+        </div>
+        </div>
+    </main>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
