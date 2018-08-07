@@ -9,6 +9,8 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
 
     <meta name="author" content="Pavlos Ratis" />
     <meta name="description" content="Personal website" />
@@ -51,16 +53,22 @@
             border: 2px solid #ccc;
             box-shadow: 0 0 20px -5px black;
         }
+        
+        .container {
+            max-width: 960px;
+        }
     </style>
 </head>
 
 <body>
-    <main role="main">
+        <main>
         <div class="container">
-            <div class="row">
-                <div class="col-8 mx-auto">
-                    <h3><a href="/">Pavlos Ratis</a></h3>
-                    <img src="img/my-avatar.jpg" class="avatar pull-right">
+            <div class="row justify-content-center">
+                    <div class="col-md-2 order-md-last text-center">
+                        <img src="img/my-avatar.jpg" alt="Pavlos Ratis" class="avatar">
+                    </div>
+                <div class="col-md-8 order-md-first">
+                    <h1><a href="/">Pavlos Ratis</a></h1>
                     <p> Hi. I'm Pavlos. I'm a Site Reliability Engineer at HolidayCheck.</p>
                     <p>
                         Linux user and open source developer since high school. Attained an MSc in Software Engineering at the University of Glasgow.
@@ -73,28 +81,31 @@
                     <p>I also consulted on the
                         <a href="https://www.packtpub.com/web-development/real-world-sre">"Real World SRE"</a> book by reviewing and offering suggestions regarding the content.</p>
                     <p>My interests include distributed systems, Linux internals, Python, Go and <a href="site-reliability.html">reliability</a> of production systems.</p>
-                    <p>GnuPG FP: 1777 8AE2 40DC 22BA A84C C60B A31B BEB2 3A05 1746 </p>
-                    <hr />
-                    <footer>
-                    <a href="https://github.com/dastergon" target="_blank">
-                        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://twitter.com/dastergon" target="_blank">
-                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/pavlosratis" target="_blank">
-                        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                    </a>
-                    <br />
-                    <br />
-                    <small class="text-muted">© Pavlos Ratis 2018</small>
-                    </footer>
+                    <p>GnuPG FP: 1777 8AE2 40DC 22BA A84C C60B A31B BEB2 3A05 1746 </p>                    
                 </div>
+
             </div>
+           <hr>
         </div>
     </main>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous">
+    <footer>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="https://github.com/dastergon" target="_blank">
+                    <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/dastergon" target="_blank">
+                    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+                <a href="https://linkedin.com/in/pavlosratis" target="_blank">
+                    <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+                </a>
+                <br>
+                <br>
+                <p><small class="text-muted">© Pavlos Ratis 2018</small></p>
+            </div>
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
