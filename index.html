@@ -1,150 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Pavlos Ratis</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>Pavlos Ratis</title>
 
-    <meta name="author" content="Pavlos Ratis" />
-    <meta name="description" content="Pavlos Ratis, Site Reliability Engineer in Munich" />
-    <!-- Facebook OpenGraph tags -->
-    <meta property="og:title" content="Pavlos Ratis" />
-    <meta property="og:site_name" content="Pavlos Ratis" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dastergon.gr/" />
-    <meta property="og:image" content="https://dastergon.gr/img/my-avatar.jpg" />
-    <meta property="og:description" content="Pavlos Ratis, Site Reliabiltiy in Munich" />
+  <meta name="author" content="Pavlos Ratis" />
+  <meta name="description" content="Pavlos Ratis, Site Reliability Engineer" />
 
-    <!-- Twitter summary cards -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@dastergon" />
-    <meta name="twitter:creator" content="@dastergon" />
-    <meta name="twitter:title" content="Pavlos Ratis" />
-    <meta name="twitter:image" content="https://dastergon.gr/img/my-avatar.jpg" />
-    <meta name="twitter:description" content="Pavlos Ratis, Site Reliability Engineer in Munich" />
-    
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
-      rel="stylesheet"
-    />
-    
-    <style>
-        body {
-            padding-top: 2em;
-            font-family: "Roboto Mono", monospace;
-        }
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="Pavlos Ratis" />
+  <meta property="og:site_name" content="Pavlos Ratis" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dastergon.gr/" />
+  <meta property="og:image" content="https://dastergon.gr/img/my-avatar.jpg" />
+  <meta property="og:description" content="Pavlos Ratis, Site Reliabiltiy Engineer" />
 
-        a {
-            color: black;
-            text-decoration: none;
-        }
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@dastergon" />
+  <meta name="twitter:creator" content="@dastergon" />
+  <meta name="twitter:title" content="Pavlos Ratis" />
+  <meta name="twitter:image" content="https://dastergon.gr/img/my-avatar.jpg" />
+  <meta name="twitter:description" content="Pavlos Ratis, Site Reliability Engineer" />
 
-        a:focus,
-        a:hover {
-            color: #f09228;
-            text-decoration: none;
-        }
-
-        .bio a {
-            color: #2455c3;
-            text-decoration: underline;
-        }
-
-        .avatar {
-            width: 170px;
-            height: 170px;
-            border-radius: 180px;
-            border: 2px solid #ccc;
-            box-shadow: 0 0 20px -5px black;
-        }
-
-        .container {
-            max-width: 960px;
-        }
-
-        i.buymeacoffee {
-            width: 27px;
-            height: 27px;
-            background-image: url(img/buymeacoffee.svg);
-            background-repeat: no-repeat;
-        }
-    </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-    <main>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-2 order-md-last text-center">
-                    <a href="img/my-avatar_orig.jpg" target="_blank"><img src="img/my-avatar.jpg" alt="Pavlos Ratis"
-                            class="avatar"></a>
-                </div>
-                <div class="col-md-8 order-md-first">
-                    <h1><a href="/">Pavlos Ratis</a></h1>
-                    <p>
-                        <a href="https://github.com/dastergon" target="_blank">
-                            <i class="fa fa-github fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://twitter.com/dastergon" target="_blank">
-                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/pavlosratis" target="_blank">
-                            <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="mailto:pavlos.ratis@gmail.com" target="_blank">
-                            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.buymeacoffee.com/dastergon" target="_blank">
-                            <i class="fa buymeacoffee" aria-hidden="true"></i>
-                        </a>
-                    </p>
+  <div class="container">
+    <header>
+      <div class="intro">
+        <h1><a href="/">Pavlos Ratis</a></h1>
+      </div>
+      <div class="avatar">
+        <a href="img/my-avatar_orig.jpg" target="_blank">
+          <img src="img/my-avatar.jpg" alt="Pavlos Ratis">
+        </a>
+      </div>
+      <div class="social">
+        <a href="https://github.com/dastergon" target="_blank">github</a>
+        <a href="https://twitter.com/dastergon" target="_blank">twitter</a>
+        <a href="https://linkedin.com/in/pavlosratis" target="_blank">linkedin</a>
+        <a href="mailto:pavlos.ratis@gmail.com" target="_blank">e-mail</a>
+        <a href="https://www.buymeacoffee.com/dastergon" target="_blank">buymeacoffee</a>
+      </div>
+    </header>
 
-                    <hr />
+    <hr />
 
-                    <div class="bio">
-                        <p> Hi there! My name is Pavlos and I'm a <a
-                                href="https://en.wikipedia.org/wiki/Site_Reliability_Engineering">Site Reliability
-                                Engineer</a> based in Munich, Germany.</p>
-                        <p>
-                            Over time, I worked on a wide range of projects, from writing software to automate and
-                            manage multi-server cloud-based infrastructure to developing web applications. I enjoy 
-                            <a href="https://github.com/dastergon">contributing</a> to open source software and in the
-                            past, I contributed to the <a href="https://gentoo.org/">Gentoo Linux</a> project as an
-                            official developer. In addition, I participated in the 
-                            <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a> program, 
-                            twice as a Software Developer and once as a mentor.
-                        </p>
-                        <p>I like building software and expanding my knowledge around the reliability of services and their infrastructure. I have created a few open source 
-                            <a href="site-reliability.html">SRE projects</a> such as the <a href="https://github.com/dastergon/awesome-sre">awesome-sre</a> and <a href="https://dastergon.gr/wheel-of-misfortune">Wheel of Misfortune</a>, to assist teams and individuals get on
-                            board the SRE culture. Finally, I was the technical reviewer of the
-                            <a href="http://a.co/d/34UsUVU">"Real World SRE"</a> book from Packt Publishing, where I
-                            offered suggestions regarding the content of the book.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <br>
-                <p><small class="text-muted">© 2019 Pavlos Ratis</small></p>
-            </div>
-        </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+    <div class="bio">
+      <p> Hi there! My name is Pavlos and I'm a
+        <a href="https://en.wikipedia.org/wiki/Site_Reliability_Engineering">Site Reliability Engineer</a> based in
+        Munich, Germany.</p>
+      <p>
+        Over time, I worked on a wide range of projects, from writing software to automate and
+        manage multi-server cloud-based infrastructure to developing web applications. I enjoy
+        <a href="https://github.com/dastergon">contributing</a> to open source software and in the
+        past, I contributed to the <a href="https://gentoo.org/">Gentoo Linux</a> project as an
+        official developer. In addition, I participated in the
+        <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a> program,
+        twice as a Software Developer and once as a mentor.
+      </p>
+      <p>I like building software and expanding my knowledge around the reliability of services and their
+        infrastructure. I have created a few open source
+        <a href="site-reliability.html">SRE projects</a> such as the <a
+          href="https://github.com/dastergon/awesome-sre">awesome-sre</a> and <a
+          href="https://dastergon.gr/wheel-of-misfortune">Wheel of Misfortune</a>,
+        to assist teams and individuals get on
+        board the SRE culture. Finally, I was the technical reviewer of the
+        <a href="http://a.co/d/34UsUVU">"Real World SRE"</a> book from Packt Publishing, where I
+        offered suggestions regarding the content of the book.</p>
+    </div>
+  </div>
 </body>
 
 </html>
