@@ -1,4 +1,4 @@
-baseURL = "https://blog.dastergon.gr/"
+baseURL = "https://dastergon.gr/"
 languageCode = "en-us"
 title = "Pavlos Ratis"
 theme = "hello-friend-ng"
