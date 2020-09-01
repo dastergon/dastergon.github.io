@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pavlos Ratis</title>
-    <link>https://blog.dastergon.gr/</link>
+    <link>https://dastergon.gr/</link>
     <description>Recent content on Pavlos Ratis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     
-	<atom:link href="https://blog.dastergon.gr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dastergon.gr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>SRE Projects</title>
-      <link>https://blog.dastergon.gr/projects/</link>
+      <link>https://dastergon.gr/projects/</link>
       <pubDate>Mon, 10 Aug 2020 16:23:07 +0200</pubDate>
       
-      <guid>https://blog.dastergon.gr/projects/</guid>
+      <guid>https://dastergon.gr/projects/</guid>
       <description>A list of various site reliability projects that I have created over time:
  awesome-sre - A curated list of Site Reliability Engineering resources. awesome-chaos-engineering - A curated list of Chaos Engineering resources. Wheel of Misfortune - Role Playing Game for Incident Management Training. postmortems.app - A postmortems metadata index. Postmortem Templates - A collection of postmortem templates from various sources. Availability Calculator - Calculate how much downtime should be permitted in your Service Level Agreement or Objective.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://blog.dastergon.gr/about/</link>
+      <link>https://dastergon.gr/about/</link>
       <pubDate>Mon, 10 Aug 2020 15:44:14 +0200</pubDate>
       
-      <guid>https://blog.dastergon.gr/about/</guid>
+      <guid>https://dastergon.gr/about/</guid>
       <description>Hi there! My name&amp;rsquo;s Pavlos and I&amp;rsquo;m a Site Reliability Engineer based in Munich, Germany. I am particularly interested in building software and expanding my knowledge around the reliability of services and their infrastructure.
 I enjoy contributing to open source software. I have created a few open source SRE projects such as the awesome-sre and Wheel of Misfortune, to assist teams and individuals get on board the SRE culture. Finally, I was the technical reviewer of the &amp;ldquo;Real World SRE&amp;rdquo; book from Packt Publishing, where I offered suggestions regarding the content of the book.</description>
     </item>
