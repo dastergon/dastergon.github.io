@@ -17,8 +17,7 @@
       <pubDate>Mon, 10 Aug 2020 16:23:07 +0200</pubDate>
       
       <guid>https://dastergon.gr/projects/</guid>
-      <description>A list of various site reliability projects that I have created over time:
- awesome-sre - A curated list of Site Reliability Engineering resources. awesome-chaos-engineering - A curated list of Chaos Engineering resources. Wheel of Misfortune - Role Playing Game for Incident Management Training. postmortems.app - A postmortems metadata index. Postmortem Templates - A collection of postmortem templates from various sources. Availability Calculator - Calculate how much downtime should be permitted in your Service Level Agreement or Objective.</description>
+      <description>awesome-sre - A curated list of Site Reliability Engineering resources. awesome-chaos-engineering - A curated list of Chaos Engineering resources. Wheel of Misfortune - Role Playing Game for Incident Management Training. postmortems.app - A postmortems metadata index. Postmortem Templates - A collection of postmortem templates from various sources. Availability Calculator - Calculate how much downtime should be permitted in your Service Level Agreement or Objective. Common Disaster Recovery Scenarios - A list of common Disaster Recovery (DR) scenarios for software companies.</description>
     </item>
     
     <item>
