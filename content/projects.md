@@ -3,7 +3,6 @@ title: "SRE Projects"
 date: 2020-08-10T16:23:07+02:00
 draft: false
 ---
-A list of various site reliability projects that I have created over time:
 
 * [awesome-sre](https://github.com/dastergon/awesome-sre) - A curated list of Site Reliability Engineering resources.
 * [awesome-chaos-engineering](https://github.com/dastergon/awesome-chaos-engineering) - A curated list of Chaos Engineering resources.
