@@ -1,0 +1,71 @@
+baseURL = "https://blog.dastergon.gr/"
+languageCode = "en-us"
+title = "Pavlos Ratis"
+theme = "hello-friend-ng"
+copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
+
+  # Subtitle for home
+  homeSubtitle = "Site Reliability Engineer"
+
+  disableReadOtherPosts = false
+  enableSharingButtons = true
+
+  defaultTheme = "light"
+
+  # Metadata mostly used in document's head
+  description = "LOL"
+  keywords = "Site Reliability Engineer, SRE, Software Engineer"
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
+
+[taxonomies]
+    category = "blog"
+    tag      = "tags"
+    series   = "series"
+
+[author]
+    name = "Pavlos Ratis"
+
+[params.logo]
+    logoText     = "Pavlos Ratis"
+    logoHomeLink = "/"
+
+# Social icons
+[[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/dastergon"
+
+[[params.social]]
+    name = "email"
+    url  = "mailto:dastergon@gmail.com"
+
+[[params.social]]
+    name = "github"
+    url  = "https://github.com/dastergon"
+
+[[params.social]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/in/pavlosratis"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+
+[[menu.main]]
+    identifier = "blog"
+    name       = "Blog"
+    url        = "/posts"
+
+[[menu.main]]
+    identifier = "projects"
+    name       = "SRE Projects"
+    url        = "/projects"
