@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://dastergon.gr/tags/devops/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/posts/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/tags/production-readiness/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/tags/site-reliability-engineering/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/tags/sre/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/tags/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dastergon.gr/posts/2020/09/the-production-readiness-spectrum/</loc>
+    <lastmod>2020-09-02T19:45:15+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dastergon.gr/projects/</loc>
     <lastmod>2020-08-10T16:23:07+02:00</lastmod>
   </url>
@@ -17,15 +57,7 @@
   </url>
   
   <url>
-    <loc>https://dastergon.gr/</loc>
-  </url>
-  
-  <url>
     <loc>https://dastergon.gr/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dastergon.gr/tags/</loc>
   </url>
   
 </urlset>

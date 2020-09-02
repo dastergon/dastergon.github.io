@@ -7,9 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 02 Sep 2020 19:45:15 +0200</lastBuildDate>
     
 	<atom:link href="https://dastergon.gr/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>devops</title>
+      <link>https://dastergon.gr/tags/devops/</link>
+      <pubDate>Wed, 02 Sep 2020 19:45:15 +0200</pubDate>
+      
+      <guid>https://dastergon.gr/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>production-readiness</title>
+      <link>https://dastergon.gr/tags/production-readiness/</link>
+      <pubDate>Wed, 02 Sep 2020 19:45:15 +0200</pubDate>
+      
+      <guid>https://dastergon.gr/tags/production-readiness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>site-reliability-engineering</title>
+      <link>https://dastergon.gr/tags/site-reliability-engineering/</link>
+      <pubDate>Wed, 02 Sep 2020 19:45:15 +0200</pubDate>
+      
+      <guid>https://dastergon.gr/tags/site-reliability-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sre</title>
+      <link>https://dastergon.gr/tags/sre/</link>
+      <pubDate>Wed, 02 Sep 2020 19:45:15 +0200</pubDate>
+      
+      <guid>https://dastergon.gr/tags/sre/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
