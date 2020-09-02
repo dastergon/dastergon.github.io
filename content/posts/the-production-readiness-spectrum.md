@@ -111,7 +111,7 @@ Automated reviews save a significant amount of working hours. But, they also rot
 ### Evaluation and final decision
 The evaluation and decision-making approaches can range from strict and proactive to lenient and reactive. In a small-medium business, we might have to deploy a service regardless of the outcome of the review, but we could still keep notes on topics that need further improvements. In a large scale environment, however, we might decide that the service cannot have SRE support, or the deployment cannot proceed without complying with the items in the checklist.
 
-With the Production Readiness Reviews, we can decide how comfortable we feel to roll out a new service to production. However, we can also use [error budgets](https://landing.google.com/sre/sre-book/chapters/embracing-risk/) in conjunction with PRRs to guide us in the decision-making process and balance the risk, in case something slips from the reviews.
+With the Production Readiness Reviews, we can decide how comfortable we feel to roll out a new service to production. However, we can also use [error budgets](https://landing.google.com/sre/sre-book/chapters/embracing-risk/) in conjunction with PRRs for guidance in the decision-making process to balance the risk, in case something slips from the reviews.
 
 #### Licking-the-index finger evaluation
 In this evaluation, we go through the checklist in a top-down fashion and check for compliance. Then, we agree if we want to proceed with the release depending on the situation.
