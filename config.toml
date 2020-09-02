@@ -19,8 +19,9 @@ copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_
   defaultTheme = "light"
 
   # Metadata mostly used in document's head
-  description = "LOL"
+  description = "Personal Website"
   keywords = "Site Reliability Engineer, SRE, Software Engineer"
+  images = ["sta"]
 
 [permalinks]
   posts = "/posts/:year/:month/:title/"
@@ -32,9 +33,11 @@ copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_
 
 [author]
     name = "Pavlos Ratis"
+    homepage = "https://dastergon.gr"
+    twitter = "https://twitter.com/dastergon"
 
 [params.logo]
-    logoText     = "Pavlos Ratis"
+    logoText     = "@dastergon"
     logoHomeLink = "/"
 
 # Social icons
