@@ -21,7 +21,6 @@ copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_
   # Metadata mostly used in document's head
   description = "Personal Website"
   keywords = "Site Reliability Engineer, SRE, Software Engineer"
-  images = ["sta"]
 
 [permalinks]
   posts = "/posts/:year/:month/:title/"
