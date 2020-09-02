@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/dastergon
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://dastergon.gr
+  * I am dastergon (https://keybase.io/dastergon) on keybase.
+  * I have a public key ASCWcL_1JH05ltGCQ6HWe-ZJvFnUN0PwfIz1W-Hm857bEQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101054c45dd7912919422a4da056c1afcfad8e438c520f5fb7b333d0aa17df75ac70a",
+            "host": "keybase.io",
+            "kid": "01209670bff5247d3996d18243a1d67be649bc59d43743f07c8cf55be1e6f39edb110a",
+            "uid": "f2f92cb9c8e99fc6273447c81aa46700",
+            "username": "dastergon"
+        },
+        "service": {
+            "hostname": "dastergon.gr",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.17"
+    },
+    "ctime": 1473002578,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1473002414,
+        "hash": "ac704c3ad2b4cfda3986bece62a263cc06b663e278e9357e4ec273f64bd995de8a693461bbe6fc894d290d28a70b2d8026852b3e2b7447656d264a5d2677986b",
+        "seqno": 618350
+    },
+    "prev": "539596252907759f8b87d4b76aaf982f4375fafa2b54a5bc0b01db4e0941e6bc",
+    "seqno": 11,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEglnC/9SR9OZbRgkOh1nvmSbxZ1DdD8HyM9Vvh5vOe2xEKp3BheWxvYWTFAvZ7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxMDU0YzQ1ZGQ3OTEyOTE5NDIyYTRkYTA1NmMxYWZjZmFkOGU0MzhjNTIwZjVmYjdiMzMzZDBhYTE3ZGY3NWFjNzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOTY3MGJmZjUyNDdkMzk5NmQxODI0M2ExZDY3YmU2NDliYzU5ZDQzNzQzZjA3YzhjZjU1YmUxZTZmMzllZGIxMTBhIiwidWlkIjoiZjJmOTJjYjljOGU5OWZjNjI3MzQ0N2M4MWFhNDY3MDAiLCJ1c2VybmFtZSI6ImRhc3RlcmdvbiJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiZGFzdGVyZ29uLmdyIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTcifSwiY3RpbWUiOjE0NzMwMDI1NzgsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ3MzAwMjQxNCwiaGFzaCI6ImFjNzA0YzNhZDJiNGNmZGEzOTg2YmVjZTYyYTI2M2NjMDZiNjYzZTI3OGU5MzU3ZTRlYzI3M2Y2NGJkOTk1ZGU4YTY5MzQ2MWJiZTZmYzg5NGQyOTBkMjhhNzBiMmQ4MDI2ODUyYjNlMmI3NDQ3NjU2ZDI2NGE1ZDI2Nzc5ODZiIiwic2Vxbm8iOjYxODM1MH0sInByZXYiOiI1Mzk1OTYyNTI5MDc3NTlmOGI4N2Q0Yjc2YWFmOTgyZjQzNzVmYWZhMmI1NGE1YmMwYjAxZGI0ZTA5NDFlNmJjIiwic2Vxbm8iOjExLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQMTL3+Fy6jjd/8JH8dDNy/Z68jZm1R74vRk5qlwbPUopaq78EU3ypkFjhY1QgWnRaEORNeakaxqwnl7TKd4nAwqoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAAGmu1qUxXjn2FPeeSBhKDDCnyFiwBXmW6Fk7VZWXHP6N0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dastergon
+
+==================================================================
+
