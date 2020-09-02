@@ -4,7 +4,7 @@ description: "An article on how to get started with Production Readiness
 Reviews"
 date: 2020-09-02T19:45:15+02:00
 draft: false
-images: ["prr-spectrum.png"]
+images: ["prr-spectrum-featured.png"]
 tags:
     - sre
     - site-reliability-engineering
