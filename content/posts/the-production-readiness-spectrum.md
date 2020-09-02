@@ -123,7 +123,7 @@ In the short-circuit evaluation, we go through the items in the checklist, and w
 
 This is a strict and proactive evaluation method but enforces our production-readiness practices.
 
-### Traffic-lights evaluation
+#### Traffic-lights evaluation
 In this evaluation, we use the traffic lights (green, yellow, red) analogy.
 We classify each category or item with a color or label based on its criticality. Critical items are flagged as critical (red). Items that we should have but are not that critical are flagged as important (yellow), and finally, items that would be great to have but are optional are flagged as green or Suggested.
 
