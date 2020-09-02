@@ -125,7 +125,7 @@ Production Readiness is not something that we can prescribe.</description>
 <h4 id="short-circuit-evaluation">Short-circuit evaluation</h4>
 <p>In the short-circuit evaluation, we go through the items in the checklist, and when we notice that our service does not meet the requirements, we request further compliance and ask for a follow-up review.</p>
 <p>This is a strict and proactive evaluation method but enforces our production-readiness practices.</p>
-<h3 id="traffic-lights-evaluation">Traffic-lights evaluation</h3>
+<h4 id="traffic-lights-evaluation">Traffic-lights evaluation</h4>
 <p>In this evaluation, we use the traffic lights (green, yellow, red) analogy.
 We classify each category or item with a color or label based on its criticality. Critical items are flagged as critical (red). Items that we should have but are not that critical are flagged as important (yellow), and finally, items that would be great to have but are optional are flagged as green or Suggested.</p>
 <p>Failing to comply with the critical items means that a service needs to improve or rework these items before proceeding with another review. In contrast, failing to comply with items flagged as Important means that service gets a green pass, but with warnings, and further tickets should be created. Over time, suggested items should evolve to important ones, otherwise, the teams will not focus on implementing them.</p>
