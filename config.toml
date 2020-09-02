@@ -37,7 +37,7 @@ copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_
     twitter = "https://twitter.com/dastergon"
 
 [params.logo]
-    logoText     = "@dastergon"
+    logoText     = "Pavlos Ratis"
     logoHomeLink = "/"
 
 # Social icons
