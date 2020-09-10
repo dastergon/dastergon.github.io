@@ -90,6 +90,7 @@ Production Readiness is not something that we can prescribe.</description>
 <li><a href="https://srcco.de/posts/web-service-on-kubernetes-production-checklist-2019.html">Production Checklist for Web Apps on Kubernetes</a></li>
 <li><a href="https://medium.com/google-cloud/production-guideline-9d5d10c8f1e">Google Cloud Production Guideline</a></li>
 <li><a href="https://gist.github.com/acolyer/95ef23802803cb8b4eb5">Internet Scale Services Checklist</a></li>
+<li><a href="https://github.com/mercari/production-readiness-checklist">Production Readiness Checklist at Mercari</a></li>
 </ul>
 <h2 id="getting-started">Getting started</h2>
 <p>Bringing Production Readiness Reviews to an organization is not an easy task and requires buy-in from management to make it official, especially if the organization is large or has slow processes. It is also likely that we will encounter skeptical and resistant colleagues throughout this journey.</p>
@@ -152,7 +153,6 @@ from the Google SRE book</a></li>
 <li><a href="https://jbd.dev/prod-readiness/">Production readiness by JBD</a></li>
 <li><a href="https://speakerdeck.com/rakyll/are-you-ready-for-production">Are you ready for production? by JBD</a></li>
 <li><a href="https://www.usenix.org/conference/srecon16europe/program/presentation/welch">How to Improve Your Service by Roasting It</a></li>
-<li><a href="https://github.com/mercari/production-readiness-checklist">Production Readiness Checklist at Mercari</a></li>
 <li><a href="https://github.com/dastergon/awesome-sre">Site Reliability Engineering Resources</a></li>
 </ul>
 ]]></content>
