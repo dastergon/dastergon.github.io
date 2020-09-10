@@ -152,6 +152,7 @@ from the Google SRE book</a></li>
 <li><a href="https://jbd.dev/prod-readiness/">Production readiness by JBD</a></li>
 <li><a href="https://speakerdeck.com/rakyll/are-you-ready-for-production">Are you ready for production? by JBD</a></li>
 <li><a href="https://www.usenix.org/conference/srecon16europe/program/presentation/welch">How to Improve Your Service by Roasting It</a></li>
+<li><a href="https://github.com/mercari/production-readiness-checklist">Production Readiness Checklist at Mercari</a></li>
 <li><a href="https://github.com/dastergon/awesome-sre">Site Reliability Engineering Resources</a></li>
 </ul>
 ]]></content>
