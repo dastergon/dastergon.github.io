@@ -156,5 +156,6 @@ Production readiness is a big topic and requires more than one blog posts to dis
 - [Production readiness by JBD](https://jbd.dev/prod-readiness/)
 - [Are you ready for production? by JBD](https://speakerdeck.com/rakyll/are-you-ready-for-production)
 - [How to Improve Your Service by Roasting It](https://www.usenix.org/conference/srecon16europe/program/presentation/welch)
+- [Production Readiness Checklist at Mercari](https://github.com/mercari/production-readiness-checklist)
 - [Site Reliability Engineering Resources](https://github.com/dastergon/awesome-sre)
 
