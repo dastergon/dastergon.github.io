@@ -68,6 +68,7 @@ The following resources offer recommended items for Production Readiness checkli
 - [Production Checklist for Web Apps on Kubernetes](https://srcco.de/posts/web-service-on-kubernetes-production-checklist-2019.html)
 - [Google Cloud Production Guideline](https://medium.com/google-cloud/production-guideline-9d5d10c8f1e)
 - [Internet Scale Services Checklist](https://gist.github.com/acolyer/95ef23802803cb8b4eb5)
+- [Production Readiness Checklist at Mercari](https://github.com/mercari/production-readiness-checklist)
 
 ## Getting started
 Bringing Production Readiness Reviews to an organization is not an easy task and requires buy-in from management to make it official, especially if the organization is large or has slow processes. It is also likely that we will encounter skeptical and resistant colleagues throughout this journey.
@@ -156,6 +157,5 @@ Production readiness is a big topic and requires more than one blog posts to dis
 - [Production readiness by JBD](https://jbd.dev/prod-readiness/)
 - [Are you ready for production? by JBD](https://speakerdeck.com/rakyll/are-you-ready-for-production)
 - [How to Improve Your Service by Roasting It](https://www.usenix.org/conference/srecon16europe/program/presentation/welch)
-- [Production Readiness Checklist at Mercari](https://github.com/mercari/production-readiness-checklist)
 - [Site Reliability Engineering Resources](https://github.com/dastergon/awesome-sre)
 
