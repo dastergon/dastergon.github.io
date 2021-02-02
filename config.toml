@@ -69,5 +69,5 @@ copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_
 
 [[menu.main]]
     identifier = "projects"
-    name       = "SRE Projects"
+    name       = "Projects"
     url        = "/projects"
