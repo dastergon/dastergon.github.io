@@ -7,10 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 Sep 2020 19:45:15 +0200</lastBuildDate>
-    
-	<atom:link href="https://dastergon.gr/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 02 Sep 2020 19:45:15 +0200</lastBuildDate><atom:link href="https://dastergon.gr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projects</title>
+      <link>https://dastergon.gr/projects/</link>
+      <pubDate>Tue, 02 Feb 2021 16:23:07 +0200</pubDate>
+      
+      <guid>https://dastergon.gr/projects/</guid>
+      <description>awesome-sre - A curated list of Site Reliability Engineering resources. awesome-chaos-engineering - A curated list of Chaos Engineering resources. Wheel of Misfortune - Role Playing Game for Incident Management Training. kubectl-janitor - A kubectl plugin that assists in finding objects in a problematic state in your Kubernetes cluster. postmortems.app - A postmortems metadata index. Postmortem Templates - A collection of postmortem templates from various sources. Availability Calculator - Calculate how much downtime should be permitted in your Service Level Agreement or Objective.</description>
+    </item>
     
     <item>
       <title>The Production Readiness Spectrum</title>
@@ -21,15 +26,6 @@
       <description>How do we define the production-readiness of services? How can we know that a service is ready for prime time?
 A &amp;ldquo;production-ready&amp;rdquo; service for an early-stage startup might be a service that has monitoring support, alerts, and a few unit tests. In contrast, in a large corporation, it might be a service with an adequate amount of unit and integration tests, documentation, monitoring, alerts, tracing support, and more.
 Production Readiness is not something that we can prescribe.</description>
-    </item>
-    
-    <item>
-      <title>SRE Projects</title>
-      <link>https://dastergon.gr/projects/</link>
-      <pubDate>Mon, 10 Aug 2020 16:23:07 +0200</pubDate>
-      
-      <guid>https://dastergon.gr/projects/</guid>
-      <description>awesome-sre - A curated list of Site Reliability Engineering resources. awesome-chaos-engineering - A curated list of Chaos Engineering resources. Wheel of Misfortune - Role Playing Game for Incident Management Training. postmortems.app - A postmortems metadata index. Postmortem Templates - A collection of postmortem templates from various sources. Availability Calculator - Calculate how much downtime should be permitted in your Service Level Agreement or Objective. Common Disaster Recovery Scenarios - A list of common Disaster Recovery (DR) scenarios for software companies.</description>
     </item>
     
     <item>
