@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sre on Pavlos Ratis</title>
-    <link>https://dastergon.gr/tags/sre/</link>
-    <description>Recent content in sre on Pavlos Ratis</description>
+    <title>golang on Pavlos Ratis</title>
+    <link>https://dastergon.gr/tags/golang/</link>
+    <description>Recent content in golang on Pavlos Ratis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 03 Feb 2021 20:42:16 +0100</lastBuildDate><atom:link href="https://dastergon.gr/tags/sre/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Feb 2021 20:42:16 +0100</lastBuildDate><atom:link href="https://dastergon.gr/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Control Packetflow TCP_NODELAY</title>
       <link>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</link>
@@ -16,17 +16,6 @@
       <guid>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</guid>
       <description>This article was originally published on GopherAcademy.com on December 19, 2019.
 Writing web services requires a lot of effort and thinking to make them robust and performant. There&amp;rsquo;s a wide range of areas to look in order to improve the performance of our service. We can start by improving the code itself and if we get into the rabbit hole of optimizations, we might also begin to look at the garbage collector, the operating system, the networking level, and the hardware that hosts our services.</description>
-    </item>
-    
-    <item>
-      <title>The Production Readiness Spectrum</title>
-      <link>https://dastergon.gr/posts/2020/09/the-production-readiness-spectrum/</link>
-      <pubDate>Wed, 02 Sep 2020 19:45:15 +0200</pubDate>
-      
-      <guid>https://dastergon.gr/posts/2020/09/the-production-readiness-spectrum/</guid>
-      <description>How do we define the production-readiness of services? How can we know that a service is ready for prime time?
-A &amp;ldquo;production-ready&amp;rdquo; service for an early-stage startup might be a service that has monitoring support, alerts, and a few unit tests. In contrast, in a large corporation, it might be a service with an adequate amount of unit and integration tests, documentation, monitoring, alerts, tracing support, and more.
-Production Readiness is not something that we can prescribe.</description>
     </item>
     
   </channel>

@@ -6,8 +6,204 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 02 Sep 2020 19:45:15 +0200</lastBuildDate>
+        <lastBuildDate>Wed, 03 Feb 2021 20:42:16 +0100</lastBuildDate>
         <atom:link href="https://dastergon.gr/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Control Packetflow TCP_NODELAY</title>
+            <link>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</link>
+            <pubDate>Wed, 03 Feb 2021 20:42:16 +0100</pubDate>
+            
+            <guid>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</guid>
+            <description>This article was originally published on GopherAcademy.com on December 19, 2019.
+Writing web services requires a lot of effort and thinking to make them robust and performant. There&amp;rsquo;s a wide range of areas to look in order to improve the performance of our service. We can start by improving the code itself and if we get into the rabbit hole of optimizations, we might also begin to look at the garbage collector, the operating system, the networking level, and the hardware that hosts our services.</description>
+            <content type="html"><![CDATA[<p><em>This article was originally published on <a href="https://blog.gopheracademy.com/advent-2019/control-packetflow-tcp-nodelay/">GopherAcademy.com</a> on December 19, 2019.</em></p>
+<p>Writing web services requires a lot of effort and thinking to make them robust and performant.
+There&rsquo;s a wide range of areas to look in order to improve the performance of our service.
+We can start by improving the code itself and if we get into the rabbit hole of optimizations,
+we might also begin to look at the garbage collector, the operating system, the networking level, and the hardware that hosts our services.</p>
+<p>This blog post will scratch the surface on some networking algorithms that might come handy to know when we&rsquo;re trying to improve the performance of our web services. We will introduce the <code>TCP_NODELAY</code> socket option and see how we can control it in Go without any external packages.</p>
+<!-- raw HTML omitted -->
+<h2 id="some-theory">Some theory</h2>
+<p>The TCP implementations on most platforms <a href="https://linux.die.net/man/7/tcp">offer</a> algorithms and socket options to dictate the packet flow, connection lifespan and many more things. An algorithm that affects the network performance and is enabled by default on Linux, macOS, and Windows is <a href="https://en.wikipedia.org/wiki/Nagle%27s_algorithm">Nagle&rsquo;s algorithm</a>. Nagle&rsquo;s algorithm coalesces small packets and delays their delivery until an ACK is returned from the previously sent packet or an adequate amount of small packets is accumulated after a certain period. This process usually takes milliseconds but, having a latency-sensitive service or tight latency <a href="https://en.wikipedia.org/wiki/Service-level_objective">Service Level Objectives (SLOs)</a>, shaving off a couple of milliseconds might be worthwhile.</p>
+<p>A cross-platform TCP socket option that comes helpful here is <code>TCP_NODELAY</code>. When enabled, it practically disables Nagle&rsquo;s algorithm.
+Instead of coalescing small packets, it sends them to the pipe as soon as possible.
+In general, Nagle&rsquo;s algorithm&rsquo;s goal is to reduce the number of packets sent to save bandwidth and increase throughput with the trade-off sometimes to introduce increased latency to services. On the other hand, <code>TCP_NODELAY</code> might decrease throughput for small writes, but there are ways to <a href="https://tinyurl.com/h56qu6y">mitigate</a> this by using buffers on the application side.</p>
+<p>In Go, <code>TCP_NODELAY</code> is enabled by default, but the standard library offers the ability to disable the behavior via the <a href="https://golang.org/pkg/net/#TCPConn.SetNoDelay">net.SetNoDelay</a> method.</p>
+<h2 id="a-small-experiment">A small experiment</h2>
+<p>To observe what&rsquo;s happening at the packet-level, and see the differences in packet arrival, we will use a tiny TCP client/server written in Go. Usually, we have inter-connected services across different regions, but for the sake of the experiment, we will experiment in our local machine. The full source code is also available on <a href="https://github.com/dastergon/gopheracademy-advent2019-tcp-no-delay">Github</a>.</p>
+<p>The server code (server.go):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;bufio&#34;</span>
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net&#34;</span>
+    <span style="color:#e6db74">&#34;strings&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">port</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;8000&#34;</span>
+
+    <span style="color:#75715e">// Create a listening socket.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">l</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Listen</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#a6e22e">port</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+    }
+    <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Close</span>()
+
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#75715e">// Accept new connections.
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">c</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">l</span>.<span style="color:#a6e22e">Accept</span>()
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+
+        <span style="color:#75715e">// Process newly accepted connection.
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">handleConnection</span>(<span style="color:#a6e22e">c</span>)
+    }
+}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">handleConnection</span>(<span style="color:#a6e22e">c</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">Conn</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Serving %s\n&#34;</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">RemoteAddr</span>().<span style="color:#a6e22e">String</span>())
+
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#75715e">// Read what has been sent from the client.
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">netData</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">c</span>).<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+
+        <span style="color:#a6e22e">cdata</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">netData</span>)
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cdata</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;GOPHER&#34;</span> {
+            <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;GopherAcademy Advent 2019!&#34;</span>))
+        }
+
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cdata</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;EXIT&#34;</span> {
+            <span style="color:#66d9ef">break</span>
+        }
+    }
+    <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Close</span>()
+}
+</code></pre></div><p>The client code (client.go):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">target</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;localhost:8000&#34;</span>
+
+    <span style="color:#a6e22e">raddr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveTCPAddr</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#a6e22e">target</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+    }
+
+    <span style="color:#75715e">// Establish a connection with the server.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">DialTCP</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">raddr</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+    }
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Sending Gophers down the pipe...&#34;</span>)
+
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#75715e">// Send the word &#34;GOPHER&#34; to the open connection.
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;GOPHER\n&#34;</span>))
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+        }
+    }
+}
+</code></pre></div><p>To observe the behavior change, first execute <code>tcpdump</code>. You might have to
+change the network interface to match your own machine:</p>
+<pre><code>sudo tcpdump -X  -i lo0 'port 8000'
+</code></pre>
+<p>Then, execute the server (server.go) and the client (client.go).</p>
+<pre><code>go run server.go
+</code></pre>
+<p>In another terminal window execute:</p>
+<pre><code>go run client.go
+</code></pre>
+<p>Initially, if we look closer at the payload, we&rsquo;ll notice that each write (<code>Write()</code>) of the word &ldquo;GOPHER&rdquo; is transmitted as a separate packet. Five in total. For brevity, I just posted only a couple of packets.</p>
+<pre><code>....
+14:03:11.057782 IP localhost.58030 &gt; localhost.irdmi: Flags [P.], seq 15:22, ack 1, win 6379, options [nop,nop,TS val 744132314 ecr 744132314], length 7
+        0x0000:  4500 003b 0000 4000 4006 0000 7f00 0001  E..;..@.@.......
+        0x0010:  7f00 0001 e2ae 1f40 80c5 9759 6171 9822  .......@...Yaq.&quot;
+        0x0020:  8018 18eb fe2f 0000 0101 080a 2c5a 8eda  ...../......,Z..
+        0x0030:  2c5a 8eda 474f 5048 4552 0a              ,Z..GOPHER.
+14:03:11.057787 IP localhost.58030 &gt; localhost.irdmi: Flags [P.], seq 22:29, ack 1, win 6379, options [nop,nop,TS val 744132314 ecr 744132314], length 7
+        0x0000:  4500 003b 0000 4000 4006 0000 7f00 0001  E..;..@.@.......
+        0x0010:  7f00 0001 e2ae 1f40 80c5 9760 6171 9822  .......@...`aq.&quot;
+        0x0020:  8018 18eb fe2f 0000 0101 080a 2c5a 8eda  ...../......,Z..
+        0x0030:  2c5a 8eda 474f 5048 4552 0a              ,Z..GOPHER.
+
+...
+</code></pre><p>If we disable <code>TCP_NODELAY</code> via the <code>SetNoDelay</code> method now, the code of the <em>client</em> looks like the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">target</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;localhost:8000&#34;</span>
+
+    <span style="color:#a6e22e">raddr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveTCPAddr</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#a6e22e">target</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+    }
+
+    <span style="color:#75715e">// Establish a connection with the server.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">DialTCP</span>(<span style="color:#e6db74">&#34;tcp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">raddr</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+    }
+
+    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">SetNoDelay</span>(<span style="color:#66d9ef">false</span>) <span style="color:#75715e">// Disable TCP_NODELAY; Nagle&#39;s Algorithm takes action.
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Sending Gophers down the pipe...&#34;</span>)
+
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#75715e">// Send the word &#34;GOPHER&#34; to the open connection.
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#e6db74">&#34;GOPHER\n&#34;</span>))
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+        }
+    }
+}
+</code></pre></div><p>Running again the client (<code>go run client.go</code>) with <code>TCP_NODELAY</code> disabled, Nagle&rsquo;s algorithm is taking action and we get the following results:</p>
+<pre><code>14:27:20.120673 IP localhost.64086 &gt; localhost.irdmi: Flags [P.], seq 8:36, ack 1, win 6379, options [nop,nop,TS val 745574362 ecr 745574362], length 28
+        0x0000:  4500 0050 0000 4000 4006 0000 7f00 0001  E..P..@.@.......
+        0x0010:  7f00 0001 fa56 1f40 07c9 d46f a115 3444  .....V.@...o..4D
+        0x0020:  8018 18eb fe44 0000 0101 080a 2c70 8fda  .....D......,p..
+        0x0030:  2c70 8fda 474f 5048 4552 0a47 4f50 4845  ,p..GOPHER.GOPHE
+        0x0040:  520a 474f 5048 4552 0a47 4f50 4845 520a  R.GOPHER.GOPHER.
+
+</code></pre><p>If we look closer at the payload, we see there are four coalesced <code>&quot;GOPHER&quot;</code> words that are sent in a single packet instead of separate packets.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>To conclude, <code>TCP_NODELAY</code> is no panacea and needs experimentation before deciding to disable it or keep it enabled.
+However, it&rsquo;s always good to know whether or not it is enabled by default in our favorite programming language.
+It might be the case that a service performs better with Nagle&rsquo;s algorithm enabled (<code>SetNoDelay(false)</code>).
+The <code>TCP_NODELAY</code> option can be used in both sending and receiving sides. There&rsquo;s no limitation.
+In our example, we experimented with it on the client-side.
+It all depends on the workload and the access we have on both the client and the server.</p>
+<p>There are a <a href="https://linux.die.net/man/7/tcp">handful</a> of other socket options such as <code>TCP_QUICKACK</code> and <code>TCP_CORK</code> to experiment. Some of them might be platform-specific. Consequently, Go does not provide a method for controlling these options yet in the same way as <code>TCP_NODELAY</code>. However, we can do this through platform-specific packages. For example, to enable socket options in *nix systems, we can use the <a href="https://godoc.org/golang.org/x/sys/unix"><code>golang.org/x/sys/unix</code></a> package and the <a href="https://godoc.org/golang.org/x/sys/unix#SetsockoptInt"><code>SetsockoptInt</code></a> method.</p>
+<p>Example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">SetsockoptInt</span>(<span style="color:#a6e22e">fd</span>, <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">IPPROTO_TCP</span>, <span style="color:#a6e22e">unix</span>.<span style="color:#a6e22e">TCP_QUICKACK</span>, <span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">NewSyscallError</span>(<span style="color:#e6db74">&#34;setsockopt&#34;</span>, <span style="color:#a6e22e">err</span>)
+}
+</code></pre></div><p>I highly recommend reading <a href="https://www.extrahop.com/company/blog/2016/tcp-nodelay-nagle-quickack-best-practices/">this blog post</a> if you want to learn about Nagle&rsquo;s algorithm, TCP_NODELAY, and similar algorithms.</p>
+]]></content>
+        </item>
         
         <item>
             <title>The Production Readiness Spectrum</title>
