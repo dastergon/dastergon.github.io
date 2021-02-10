@@ -18,8 +18,7 @@ we might also begin to look at the garbage collector, the operating system, the 
 
 This blog post will scratch the surface on some networking algorithms that might come handy to know when we're trying to improve the performance of our web services. We will introduce the `TCP_NODELAY` socket option and see how we can control it in Go without any external packages.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">About one year of every systems PhD is dedicated to learning -- the hard way -- to enable TCP_NODELAY.<br><br>After a couple notable incidents of this, I wrote &quot;IT&#39;S ALWAYS THE NAGLE ALGORITHM&quot; in large letters on the <a href="https://twitter.com/uwsyslab?ref_src=twsrc%5Etfw">@uwsyslab</a> whiteboard to serve as a warning to others. <a href="https://t.co/LZdXNtv6RS">https://t.co/LZdXNtv6RS</a></p>&mdash; Dan Ports (@danrkports) <a href="https://twitter.com/danrkports/status/1161770217665486848?ref_src=twsrc%5Etfw">August 14, 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{< tweet 1161770217665486848 >}}
 
 ## Some theory
 
