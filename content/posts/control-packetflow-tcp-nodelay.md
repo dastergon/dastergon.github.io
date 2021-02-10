@@ -1,5 +1,5 @@
 ---
-title: "Control Packetflow TCP_NODELAY"
+title: "Control packet flow with TCP_NODELAY in Go"
 date: 2021-02-03T20:42:16+01:00
 draft: false
 toc: false
