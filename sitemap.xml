@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</loc>
+    <loc>https://dastergon.gr/posts/2021/02/control-packet-flow-with-tcp_nodelay-in-go/</loc>
     <lastmod>2021-02-03T20:42:16+01:00</lastmod>
   </url>
   

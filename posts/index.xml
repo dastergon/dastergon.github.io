@@ -10,11 +10,11 @@
         <atom:link href="https://dastergon.gr/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Control Packetflow TCP_NODELAY</title>
-            <link>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</link>
+            <title>Control packet flow with TCP_NODELAY in Go</title>
+            <link>https://dastergon.gr/posts/2021/02/control-packet-flow-with-tcp_nodelay-in-go/</link>
             <pubDate>Wed, 03 Feb 2021 20:42:16 +0100</pubDate>
             
-            <guid>https://dastergon.gr/posts/2021/02/control-packetflow-tcp_nodelay/</guid>
+            <guid>https://dastergon.gr/posts/2021/02/control-packet-flow-with-tcp_nodelay-in-go/</guid>
             <description>This article was originally published on GopherAcademy.com on December 19, 2019.
 Writing web services requires a lot of effort and thinking to make them robust and performant. There&amp;rsquo;s a wide range of areas to look in order to improve the performance of our service. We can start by improving the code itself and if we get into the rabbit hole of optimizations, we might also begin to look at the garbage collector, the operating system, the networking level, and the hardware that hosts our services.</description>
             <content type="html"><![CDATA[<p><em>This article was originally published on <a href="https://blog.gopheracademy.com/advent-2019/control-packetflow-tcp-nodelay/">GopherAcademy.com</a> on December 19, 2019.</em></p>
