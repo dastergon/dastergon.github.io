@@ -38,7 +38,7 @@ Writing web services requires a lot of effort and thinking to make them robust a
 Writing web services requires a lot of effort and thinking to make them robust and performant. There&rsquo;s a wide range of areas to look in order to improve the performance of our service. We can start by improving the code itself and if we get into the rabbit hole of optimizations, we might also begin to look at the garbage collector, the operating system, the networking level, and the hardware that hosts our services.">
 <meta itemprop="datePublished" content="2021-02-03T20:42:16+01:00" />
 <meta itemprop="dateModified" content="2021-02-03T20:42:16+01:00" />
-<meta itemprop="wordCount" content="1236">
+<meta itemprop="wordCount" content="1291">
 
 
 
@@ -127,7 +127,7 @@ Writing web services requires a lot of effort and thinking to make them robust a
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        6 minutes
+        7 minutes
 
         
       </p>
@@ -149,7 +149,9 @@ There&rsquo;s a wide range of areas to look in order to improve the performance 
 We can start by improving the code itself and if we get into the rabbit hole of optimizations,
 we might also begin to look at the garbage collector, the operating system, the networking level, and the hardware that hosts our services.</p>
 <p>This blog post will scratch the surface on some networking algorithms that might come handy to know when we&rsquo;re trying to improve the performance of our web services. We will introduce the <code>TCP_NODELAY</code> socket option and see how we can control it in Go without any external packages.</p>
-<!-- raw HTML omitted -->
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">About one year of every systems PhD is dedicated to learning -- the hard way -- to enable TCP_NODELAY.<br><br>After a couple notable incidents of this, I wrote &quot;IT&#39;S ALWAYS THE NAGLE ALGORITHM&quot; in large letters on the <a href="https://twitter.com/uwsyslab?ref_src=twsrc%5Etfw">@uwsyslab</a> whiteboard to serve as a warning to others. <a href="https://t.co/LZdXNtv6RS">https://t.co/LZdXNtv6RS</a></p>&mdash; Dan Ports (@danrkports) <a href="https://twitter.com/danrkports/status/1161770217665486848?ref_src=twsrc%5Etfw">August 14, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <h2 id="some-theory">Some theory</h2>
 <p>The TCP implementations on most platforms <a href="https://linux.die.net/man/7/tcp">offer</a> algorithms and socket options to dictate the packet flow, connection lifespan and many more things. An algorithm that affects the network performance and is enabled by default on Linux, macOS, and Windows is <a href="https://en.wikipedia.org/wiki/Nagle%27s_algorithm">Nagle&rsquo;s algorithm</a>. Nagle&rsquo;s algorithm coalesces small packets and delays their delivery until an ACK is returned from the previously sent packet or an adequate amount of small packets is accumulated after a certain period. This process usually takes milliseconds but, having a latency-sensitive service or tight latency <a href="https://en.wikipedia.org/wiki/Service-level_objective">Service Level Objectives (SLOs)</a>, shaving off a couple of milliseconds might be worthwhile.</p>
 <p>A cross-platform TCP socket option that comes helpful here is <code>TCP_NODELAY</code>. When enabled, it practically disables Nagle&rsquo;s algorithm.
@@ -355,7 +357,7 @@ It all depends on the workload and the access we have on both the client and the
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1236 Words
+        1291 Words
       </p>
 
       <p>
